@@ -10,9 +10,11 @@ public class StringCalculatorTest {
         assertEquals(0, calculator.Add(""));
     }
 
-    @Test
+   @Test
     void shouldReturnNumberForSingleNumber() {
         StringCalculator calculator = new StringCalculator();
-        assertEquals(1, calculator.Add("1"));
+        int result = calculator.Add("1");
+        System.out.println("Sum: " + result); // This will print the sum in the output window
+        assertEquals(1, result);
     }
 }
