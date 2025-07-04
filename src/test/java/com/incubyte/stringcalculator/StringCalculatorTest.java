@@ -34,4 +34,12 @@ public class StringCalculatorTest {
         assertEquals(10, result);
     }
 
+    @Test
+    void newLineIsUsedAsDelimiter() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("1\n2,3");
+        System.out.println("Sum: " + result);
+        assertEquals(6, result);
+    }
+
 }
