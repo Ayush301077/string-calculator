@@ -2,13 +2,15 @@ package com.incubyte.stringcalculator;
 
 public class StringCalculator {
     public int Add(String numbers) {
-    if (numbers.isEmpty()) {
-        return 0;
-    }
-    if (numbers.contains(",")) {
+        if (numbers.isEmpty()) {
+            return 0;
+        }
         String[] nums = numbers.split(",");
-        return Integer.parseInt(nums[0]) + Integer.parseInt(nums[1]);
+        int sum = 0;
+        for (String num : nums) {
+            sum += Integer.parseInt(num);
+        }
+        return sum;
     }
-    return Integer.parseInt(numbers);
-}
+
 }
