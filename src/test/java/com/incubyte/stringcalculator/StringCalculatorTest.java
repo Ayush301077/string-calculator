@@ -105,4 +105,12 @@ public class StringCalculatorTest {
         System.out.println("Sum: " + result);
         assertEquals(6, result);
     }
+
+    @Test
+    void multipleDelimitersWithLengthLongerThanOneChar() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("//[**][%%]\n1**2%%3");
+        System.out.println("Sum: " + result);
+        assertEquals(6, result);
+    }
 }
