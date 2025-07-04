@@ -49,4 +49,14 @@ public class StringCalculatorTest {
         System.out.println("Sum: " + result);
         assertEquals(3, result);
     }
+
+    @Test
+    void shouldThrowExceptionForNegativeNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.Add("1,-2,3");
+        });
+        System.out.println("Exception message: " + exception.getMessage());
+        assertTrue(exception.getMessage().contains("negatives not allowed"));
+    }
 }
