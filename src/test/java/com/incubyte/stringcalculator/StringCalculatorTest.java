@@ -42,4 +42,11 @@ public class StringCalculatorTest {
         assertEquals(6, result);
     }
 
+    @Test
+    void customDelimiterIsUsed() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("//;\n1;2");
+        System.out.println("Sum: " + result);
+        assertEquals(3, result);
+    }
 }
