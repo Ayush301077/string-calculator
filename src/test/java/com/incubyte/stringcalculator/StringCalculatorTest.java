@@ -14,7 +14,15 @@ public class StringCalculatorTest {
     void shouldReturnNumberForSingleNumber() {
         StringCalculator calculator = new StringCalculator();
         int result = calculator.Add("1");
-        System.out.println("Sum: " + result); // This will print the sum in the output window
+        System.out.println("Sum: " + result); 
         assertEquals(1, result);
+    }
+
+    @Test
+    void shouldReturnSumForTwoNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("1,2");
+        System.out.println("Sum: " + result); 
+        assertEquals(3, result);
     }
 }
