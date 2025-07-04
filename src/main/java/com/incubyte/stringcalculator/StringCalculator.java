@@ -1,7 +1,11 @@
 package com.incubyte.stringcalculator;
 
 public class StringCalculator {
+    private int callCount = 0;
+
     public int Add(String numbers) {
+        callCount++;
+
         if (numbers.isEmpty()) {
             return 0;
         }
@@ -26,6 +30,10 @@ public class StringCalculator {
             throw new IllegalArgumentException("negatives not allowed: " + negatives);
         }
         return sum;
+    }
+
+    public int GetCalledCount() {
+        return callCount;
     }
 
 }
