@@ -25,4 +25,13 @@ public class StringCalculatorTest {
         System.out.println("Sum: " + result); 
         assertEquals(3, result);
     }
+
+    @Test
+    void shouldReturnSumForMultipleNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("1,2,3,4");
+        System.out.println("Sum: " + result);
+        assertEquals(10, result);
+    }
+
 }
