@@ -81,4 +81,12 @@ public class StringCalculatorTest {
         System.out.println("Add called: " + count + " times");
         assertEquals(2, count);
     }
+
+    @Test
+    void numbersGreaterThanThousandAreIgnored() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("2,1001");
+        System.out.println("Sum: " + result);
+        assertEquals(2, result);
+    }
 }
