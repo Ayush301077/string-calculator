@@ -59,4 +59,16 @@ public class StringCalculatorTest {
         System.out.println("Exception message: " + exception.getMessage());
         assertTrue(exception.getMessage().contains("negatives not allowed"));
     }
+
+    @Test
+    void shouldListAllNegativesInExceptionMessage() {
+        StringCalculator calculator = new StringCalculator();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.Add("1,-2,-3,4");
+        });
+        System.out.println("Exception message: " + exception.getMessage());
+        assertTrue(exception.getMessage().contains("negatives not allowed"));
+        assertTrue(exception.getMessage().contains("-2"));
+        assertTrue(exception.getMessage().contains("-3"));
+    }
 }
