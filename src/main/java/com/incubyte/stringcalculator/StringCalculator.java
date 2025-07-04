@@ -5,9 +5,15 @@ public class StringCalculator {
         if (numbers.isEmpty()) {
             return 0;
         }
-        String[] nums = numbers.split(",|\\n");
+        String delimiter = ",|\n";
+        String nums = numbers;
+        if (numbers.startsWith("//")) {
+            delimiter = Character.toString(numbers.charAt(2));
+            nums = numbers.substring(4);
+        }
+        String[] numArray = nums.split(delimiter);
         int sum = 0;
-        for (String num : nums) {
+        for (String num : numArray) {
             sum += Integer.parseInt(num);
         }
         return sum;
