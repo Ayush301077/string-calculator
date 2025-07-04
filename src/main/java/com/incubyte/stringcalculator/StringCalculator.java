@@ -14,7 +14,11 @@ public class StringCalculator {
         String[] numArray = nums.split(delimiter);
         int sum = 0;
         for (String num : numArray) {
-            sum += Integer.parseInt(num);
+            int value = Integer.parseInt(num);
+            if (value < 0) {
+                throw new IllegalArgumentException("negatives not allowed: " + value);
+            }
+            sum += value;
         }
         return sum;
     }
