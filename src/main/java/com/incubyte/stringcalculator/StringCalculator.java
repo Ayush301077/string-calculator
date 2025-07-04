@@ -1,8 +1,12 @@
 package com.incubyte.stringcalculator;
 import java.util.regex.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StringCalculator {
     private int callCount = 0;
+
+   
 
     public int Add(String numbers) {
         callCount++;
@@ -12,11 +16,17 @@ public class StringCalculator {
         String delimiter = ",|\n";
         String nums = numbers;
         if (numbers.startsWith("//[")) {
-            int endIndex = numbers.indexOf("]\n");
-            delimiter = Pattern.quote(numbers.substring(3, endIndex));
-            nums = numbers.substring(endIndex + 2);
+            int delimiterEnd = numbers.indexOf("\n");
+            String delimiterSection = numbers.substring(2, delimiterEnd);
+            List<String> delimiters = new ArrayList<>();
+            Matcher m = Pattern.compile("\\[(.*?)]").matcher(delimiterSection);
+            while (m.find()) {
+                delimiters.add(Pattern.quote(m.group(1)));
+            }
+            delimiter = String.join("|", delimiters);
+            nums = numbers.substring(delimiterEnd + 1);
         } else if (numbers.startsWith("//")) {
-            delimiter = Character.toString(numbers.charAt(2));
+            delimiter = Pattern.quote(Character.toString(numbers.charAt(2)));
             nums = numbers.substring(4);
         }
         String[] numArray = nums.split(delimiter);
