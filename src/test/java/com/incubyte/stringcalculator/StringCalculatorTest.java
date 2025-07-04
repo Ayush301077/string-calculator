@@ -71,4 +71,14 @@ public class StringCalculatorTest {
         assertTrue(exception.getMessage().contains("-2"));
         assertTrue(exception.getMessage().contains("-3"));
     }
+
+    @Test
+    void numberOfTimesAddWasCalled() {
+        StringCalculator calculator = new StringCalculator();
+        calculator.Add("1,2");
+        calculator.Add("3");
+        int count = calculator.GetCalledCount();
+        System.out.println("Add called: " + count + " times");
+        assertEquals(2, count);
+    }
 }
